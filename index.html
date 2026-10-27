@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodeScribe | Login & Registration</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <section class="brand-section">
+
+        <div class="logo">
+            <span class="code-icon">&lt;/&gt;</span>
+            <h1>Code<span>Scribe</span></h1>
+        </div>
+
+        <div class="brand-content">
+            <h2>Your Code.<br>
+                Organized. Analyzed.<br>
+                <span>Better.</span>
+            </h2>
+
+            <p>
+                CodeScribe helps you manage your code,
+                detect issues, and build better software.
+            </p>
+
+            <div class="feature">
+                <div class="feature-icon">▣</div>
+                <div>
+                    <h3>Secure Code Vault</h3>
+                    <p>Store and organize your projects</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">⌕</div>
+                <div>
+                    <h3>Static Analysis</h3>
+                    <p>Find issues before you run</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">↗</div>
+                <div>
+                    <h3>Better Learning</h3>
+                    <p>Improve your coding skills</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="code-illustration">
+            <div class="laptop">
+                <div class="laptop-screen">
+                    <span>def analyze_code():</span>
+                    <span>&nbsp;&nbsp;check_syntax()</span>
+                    <span>&nbsp;&nbsp;return report</span>
+                    <span class="code-comment"># CodeScribe</span>
+                </div>
+                <div class="laptop-base"></div>
+            </div>
+
+            <div class="language-badge cpp">C++</div>
+            <div class="language-badge python">Py</div>
+        </div>
+
+    </section>
+
+
+    <section class="auth-section">
+
+        <div class="auth-card" id="loginCard">
+
+            <div class="auth-heading">
+                <h2>Welcome Back!</h2>
+                <p>Login to your CodeScribe account</p>
+            </div>
+
+            <form id="loginForm">
+
+                <div class="input-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="loginPassword">Password</label>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
+
+                <div class="form-options">
+                    <label class="remember">
+                        <input type="checkbox" id="rememberMe">
+                        Remember me
+                    </label>
+
+                    <a href="#" id="forgotLink">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="primary-button">
+                    Login
+                </button>
+
+                <p class="message" id="loginMessage"></p>
+
+            </form>
+
+            <div class="switch-form">
+                Don't have an account?
+                <a href="#" id="showRegister">Create Account</a>
+            </div>
+
+        </div>
+
+
+        <div class="auth-card hidden" id="registerCard">
+
+            <div class="auth-heading">
+                <h2>Create Account</h2>
+                <p>Join CodeScribe and start your journey</p>
+            </div>
+
+            <form id="registerForm">
+
+                <div class="input-group">
+                    <label for="fullName">Full Name</label>
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="registerEmail">Email Address</label>
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="registerPassword">Password</label>
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        placeholder="Create a password"
+                        minlength="8"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm your password"
+                        minlength="8"
+                        required
+                    >
+                </div>
+
+                <label class="remember terms">
+                    <input type="checkbox" id="acceptTerms" required>
+                    I agree to the Terms and Conditions
+                </label>
+
+                <button type="submit" class="primary-button">
+                    Register
+                </button>
+
+                <p class="message" id="registerMessage"></p>
+
+            </form>
+
+            <div class="switch-form">
+                Already have an account?
+                <a href="#" id="showLogin">Login</a>
+            </div>
+
+        </div>
+
+
+       
+        <div class="auth-card hidden" id="forgotCard">
+
+            <div class="auth-heading">
+                <h2>Forgot Password?</h2>
+                <p>Enter your email to request a password reset.</p>
+            </div>
+
+            <form id="forgotForm">
+
+                <div class="input-group">
+                    <label for="forgotEmail">Email Address</label>
+                    <input
+                        type="email"
+                        id="forgotEmail"
+                        placeholder="Enter your registered email"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="primary-button">
+                    Request Password Reset
+                </button>
+
+                <p class="message" id="forgotMessage"></p>
+
+            </form>
+
+            <div class="switch-form">
+                Remember your password?
+                <a href="#" id="backToLogin">Back to Login</a>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+    const loginCard = document.getElementById("loginCard");
+    const registerCard = document.getElementById("registerCard");
+    const forgotCard = document.getElementById("forgotCard");
+
+    function showCard(card) {
+        loginCard.classList.add("hidden");
+        registerCard.classList.add("hidden");
+        forgotCard.classList.add("hidden");
+
+        card.classList.remove("hidden");
+    }
+
+    document.getElementById("showRegister").addEventListener("click", function(event) {
+        event.preventDefault();
+        showCard(registerCard);
+    });
+
+    document.getElementById("showLogin").addEventListener("click", function(event) {
+        event.preventDefault();
+        showCard(loginCard);
+    });
+
+    document.getElementById("forgotLink").addEventListener("click", function(event) {
+        event.preventDefault();
+        showCard(forgotCard);
+    });
+
+    document.getElementById("backToLogin").addEventListener("click", function(event) {
+        event.preventDefault();
+        showCard(loginCard);
+    });
+
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        document.getElementById("loginMessage").textContent =
+            "UI demo only. Connect a backend to authenticate your account.";
+    });
+
+    
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const password = document.getElementById("registerPassword").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+        const message = document.getElementById("registerMessage");
+
+        if (password !== confirmPassword) {
+            message.textContent = "Passwords do not match.";
+            return;
+        }
+
+        message.textContent =
+            "UI demo only. Connect a backend to create your account.";
+    });
+
+    document.getElementById("forgotForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        document.getElementById("forgotMessage").textContent =
+            "Demo only. A backend is required to send a secure password reset link.";
+    });
+</script>
+
+</body>
+</html>
+
